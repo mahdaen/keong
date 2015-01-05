@@ -1,0 +1,36 @@
+{
+    "name": "keong",
+    "version": "1.0.0",
+    "description": "Just another Web Application Kit",
+    "readme": "readme.md",
+
+    "keywords": [
+        "keong",
+        "app kit",
+        "web app kit",
+        "model view controller"
+    ],
+
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/keong/keong.git"
+    },
+
+    "dependencies": {
+        "grunt": "*",
+        "grunt-contrib-concat": "*",
+        "grunt-contrib-less": "*",
+        "grunt-contrib-uglify": "*",
+        "grunt-contrib-watch": "*",
+        "grunt-sync": "*"
+    },
+
+    "license": "MIT",
+
+    "authors": [
+        {
+            "name": "Nanang Mahdaen El Agung",
+            "email": "mahdaen@gmail.com"
+        }
+    ]
+}

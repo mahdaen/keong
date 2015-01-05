@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<!-- METAS -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="format-detection" content="telephone=no">
+
+	<!-- Application Title -->
+	<title>Keong Project</title>
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="assets/styles/main.css" />
+
+	<!-- Sripts -->
+	<script type="text/javascript" src="assets/scripts/com.libs.js"></script>
+	<script type="text/javascript" src="assets/scripts/com.keong.js"></script>
+
+	<!-- Live Reload -->
+	<script type="text/javascript" src="http://localhost:1973/livereload.js"></script>
+
+	<!-- Importing Polymer -->
+	<link rel="import" href="public/core/polymer/layout.html"/>
+
+	<!-- Importing Elements -->
+	<link rel="import" href="public/views/web-button/main.html"/>
+	<link rel="import" href="public/views/block-import/main.html"/>
+	<link rel="import" href="public/views/block-repeat/main.html"/>
+	<link rel="import" href="public/views/data-provider/main.html"/>
+
+	<script type="text/javascript">
+		window.people = { name: 'John', last: 'Smith' };
+		DataProvider('peoples', [
+			{
+				name: 'John',
+				last: 'Smith'
+			},
+			{
+				name: 'Michael',
+				last: 'Smith'
+			}
+		]);
+
+		DataProvider('test', {
+			title: 'Just test',
+			version: '1.0.1',
+			childs: {
+				a: 1,
+				b: 2
+			}
+		});
+	</script>
+</head>
+<body unresolved class="app-body">
+	<data-provider name="project" src="/public/main.json"></data-provider>
+	<data-provider name="persons" src="test.json"></data-provider>
+
+	<app-block title="Lorem Ipsum Dolor">
+		<app-toolbar>
+			<import-block href="/test.html" />
+		</app-toolbar>
+		<app-leftbar>
+			<web-button part="{{ project.id }}" value="{{ project.title }} version {{ project.version }} is {{ project.description }}"></web-button>
+			<web-button block>Compute try: {{ project.foo * 3 }}</web-button>
+			<web-button block>{{ project.title === 'Keong Project' }}</web-button>
+		</app-leftbar>
+		<app-content>
+
+		</app-content>
+		<app-actionbar>
+			<block-repeat for="people in peoples">
+				<div></div>
+				<web-button value="{{ people.name }}"></web-button>
+				<web-button value="{{ people.last }}"></web-button>
+			</block-repeat>
+		</app-actionbar>
+		<app-rightbar>
+			<block-repeat for="people in project.authors">
+				<div></div>
+				<web-button id="{{ loop.index }}" value="Name: {{ people.name }}"></web-button>
+				<span>,</span>
+				<web-button id="{{ loop.index }}" value="Email: {{ people.email }}"></web-button>
+			</block-repeat>
+		</app-rightbar>
+	</app-block>
+</body>
+</html>

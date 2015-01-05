@@ -1,0 +1,19 @@
+<polymer-element name="web-button" attributes="href target value part" on-tap="{{ handle }}">
+	<template>
+		<span class="test">{{ value }}</span>
+		<content></content>
+	</template>
+	<script>
+		Compose('web-button', {
+			target: '_blank',
+			href: null,
+			value: '',
+			valueChanged: function(oldval, newval) {
+//				console.log(oldval, newval);
+			},
+			handle: function() {
+				console.log('Clicked')
+			}
+		});
+	</script>
+</polymer-element>

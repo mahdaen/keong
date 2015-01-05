@@ -1,0 +1,20 @@
+{
+    "name": "public",
+    "version": "0.0.0",
+    "authors": [
+        "Nanang Mahdaen El Agung <mahdaen@gmail.com>"
+    ],
+    "license": "MIT",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "core/",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "core-elements": "Polymer/core-elements#~0.5.2"
+    }
+}
